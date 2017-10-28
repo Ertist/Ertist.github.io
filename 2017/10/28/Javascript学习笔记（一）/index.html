@@ -69,17 +69,17 @@
 
 
 
-<meta name="description" content="学习js已经有一段时间了，知识点很零散，有的部分看过后基本就忘了。主要问题还是在于动手太少，没有付诸于代码实践，对知识的整理和归纳温习也很少做过。这次我将通过写博客的形式来巩固自己掌握不太好或不宜记住的点。 1.&amp;lt;script&amp;gt; 元素&amp;lt;script&amp;gt;元素主要用来向html页面中插入js。主要的插入方法有两种：直接在&amp;lt;script&amp;gt; &amp;lt;/script&amp;gt;">
+<meta name="description" content="学习js已经有一段时间了，知识点很零散，有的部分看过后基本就忘了。主要问题还是在于动手太少，没有付诸于代码实践，对知识的整理和归纳温习也很少做过。这次我将通过写博客的形式来巩固自己掌握不太好或不宜记住的点。 1. \元素&amp;lt;script&amp;gt;元素主要用来向html页面中插入js。主要的插入方法有两种：直接在&amp;lt;script&amp;gt; &amp;lt;/script&amp;gt;中写入；引入外部文件。 &amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript学习笔记（一）">
 <meta property="og:url" content="http://yoursite.com/2017/10/28/Javascript学习笔记（一）/index.html">
 <meta property="og:site_name" content="Ertist&#39;s Blog">
-<meta property="og:description" content="学习js已经有一段时间了，知识点很零散，有的部分看过后基本就忘了。主要问题还是在于动手太少，没有付诸于代码实践，对知识的整理和归纳温习也很少做过。这次我将通过写博客的形式来巩固自己掌握不太好或不宜记住的点。 1.&amp;lt;script&amp;gt; 元素&amp;lt;script&amp;gt;元素主要用来向html页面中插入js。主要的插入方法有两种：直接在&amp;lt;script&amp;gt; &amp;lt;/script&amp;gt;">
+<meta property="og:description" content="学习js已经有一段时间了，知识点很零散，有的部分看过后基本就忘了。主要问题还是在于动手太少，没有付诸于代码实践，对知识的整理和归纳温习也很少做过。这次我将通过写博客的形式来巩固自己掌握不太好或不宜记住的点。 1. \元素&amp;lt;script&amp;gt;元素主要用来向html页面中插入js。主要的插入方法有两种：直接在&amp;lt;script&amp;gt; &amp;lt;/script&amp;gt;中写入；引入外部文件。 &amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-28T12:17:15.168Z">
+<meta property="og:updated_time" content="2017-10-28T12:22:33.318Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript学习笔记（一）">
-<meta name="twitter:description" content="学习js已经有一段时间了，知识点很零散，有的部分看过后基本就忘了。主要问题还是在于动手太少，没有付诸于代码实践，对知识的整理和归纳温习也很少做过。这次我将通过写博客的形式来巩固自己掌握不太好或不宜记住的点。 1.&amp;lt;script&amp;gt; 元素&amp;lt;script&amp;gt;元素主要用来向html页面中插入js。主要的插入方法有两种：直接在&amp;lt;script&amp;gt; &amp;lt;/script&amp;gt;">
+<meta name="twitter:description" content="学习js已经有一段时间了，知识点很零散，有的部分看过后基本就忘了。主要问题还是在于动手太少，没有付诸于代码实践，对知识的整理和归纳温习也很少做过。这次我将通过写博客的形式来巩固自己掌握不太好或不宜记住的点。 1. \元素&amp;lt;script&amp;gt;元素主要用来向html页面中插入js。主要的插入方法有两种：直接在&amp;lt;script&amp;gt; &amp;lt;/script&amp;gt;中写入；引入外部文件。 &amp;">
 
 
 
@@ -290,7 +290,7 @@
 
       
         <p>学习js已经有一段时间了，知识点很零散，有的部分看过后基本就忘了。主要问题还是在于动手太少，没有付诸于代码实践，对知识的整理和归纳温习也很少做过。这次我将通过写博客的形式来巩固自己掌握不太好或不宜记住的点。</p>
-<h2 id="1-lt-script-gt-元素"><a href="#1-lt-script-gt-元素" class="headerlink" title="1.&lt;script&gt; 元素"></a>1.<code>&lt;script&gt;</code> 元素</h2><p><code>&lt;script&gt;</code>元素主要用来向html页面中插入js。主要的插入方法有两种：直接在<code>&lt;script&gt;</code> <code>&lt;/script&gt;</code>中写入；引入外部文件。</p>
+<h2 id="1-元素"><a href="#1-元素" class="headerlink" title="1. \元素"></a>1. \<script\>元素</script\></h2><p><code>&lt;script&gt;</code>元素主要用来向html页面中插入js。主要的插入方法有两种：直接在<code>&lt;script&gt;</code> <code>&lt;/script&gt;</code>中写入；引入外部文件。</p>
 <p><strong><code>&lt;script&gt;</code> 定义了六种属性：</strong></p>
 <ul>
 <li><p>async（可选）：在不妨碍页面中的其他操作同时，立即下载脚本；</p>
@@ -308,9 +308,9 @@
 <p><code>&lt;script&gt;</code>嵌入js代码时，切记不能在里面任何地方出现<code>&lt;/script&gt;</code>字符串，会产生错误，如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script type = <span class="string">"text/javascript"</span>&gt;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">sayScript</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	  	alert(<span class="string">"&lt;/script&gt;"</span>);                 <span class="comment">//不可这样写，可通过转义字符，如：alert&lt;"\/script"&gt;</span></div><div class="line">	&#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
 <p>带有scr属性的<script>中不应该再往<script></script>中间嵌入额外代码，否则只会执行下载的外部文件代码，不会执行嵌入的代码。现代的Web应用程序一般都会把全部的js引用放在<body>的最下面，这样做的目的是为了使页面快速呈现内容，不用等到js脚本渲染完毕再呈现，避免了延迟。</body></p>
-<h2 id="2-文档模式"><a href="#2-文档模式" class="headerlink" title="2.文档模式"></a>2.文档模式</h2><p>通过文档类型（doctype）的切换实现。最初的两种文档类型为：混杂模式和标准模式，两种模式主要影响css内容的呈现。</p>
-<h2 id="3-基本概念"><a href="#3-基本概念" class="headerlink" title="3.基本概念"></a>3.基本概念</h2><h3 id="3-1-严格模式"><a href="#3-1-严格模式" class="headerlink" title="3.1.严格模式"></a>3.1.严格模式</h3><p>严格模式是js定义的一种解析与执行模式，会对某些不确定和不安全的操作抛出错误。对整个脚本启动严格模式：在顶部输入 <code>&quot;use strict&quot;</code>;也可以指定函数启动严格模式，在函数体内第一行输入<code>&quot;use strict&quot;</code>。</p>
-<h3 id="3-2-变量"><a href="#3-2-变量" class="headerlink" title="3.2.变量"></a>3.2.变量</h3><p>ECMAScript的变量为松散类型，即变量可以保持任何类型的数据，每个变量仅仅是一个用来保存值的占位符。如果在函数中使用var定义一个变量，那么变量在函数结束后会被销毁。</p>
+<h2 id="2-文档模式"><a href="#2-文档模式" class="headerlink" title="2. 文档模式"></a>2. 文档模式</h2><p>通过文档类型（doctype）的切换实现。最初的两种文档类型为：混杂模式和标准模式，两种模式主要影响css内容的呈现。</p>
+<h2 id="3-基本概念"><a href="#3-基本概念" class="headerlink" title="3. 基本概念"></a>3. 基本概念</h2><h3 id="3-1-严格模式"><a href="#3-1-严格模式" class="headerlink" title="3.1. 严格模式"></a>3.1. 严格模式</h3><p>严格模式是js定义的一种解析与执行模式，会对某些不确定和不安全的操作抛出错误。对整个脚本启动严格模式：在顶部输入 <code>&quot;use strict&quot;</code>;也可以指定函数启动严格模式，在函数体内第一行输入<code>&quot;use strict&quot;</code>。</p>
+<h3 id="3-2-变量"><a href="#3-2-变量" class="headerlink" title="3.2. 变量"></a>3.2. 变量</h3><p>ECMAScript的变量为松散类型，即变量可以保持任何类型的数据，每个变量仅仅是一个用来保存值的占位符。如果在函数中使用var定义一个变量，那么变量在函数结束后会被销毁。</p>
 <p>在定义变量时省略var操作符，则默认定义为全局变量，如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  	kymage = <span class="number">20</span>;      <span class="comment">//kymage这个变量前面未定义，故在这里会默认定义为全局变量</span></div><div class="line">  	<span class="comment">/*但不推荐这种做法，会造成代码难以维护，在严格模式下会抛出ReferenceError错误*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="1-3-3数据类型"><a href="#1-3-3数据类型" class="headerlink" title="1.3.3数据类型"></a>1.3.3数据类型</h3><p>数据类型包括物种基础数据类型（Undefined、Null、Boolean、Number、String）和一种复杂数据类型（object）。下面分别对这几种类型进行介绍和补充。</p>
@@ -535,7 +535,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-lt-script-gt-元素"><span class="nav-text">1.<script> 元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-文档模式"><span class="nav-text">2.文档模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-基本概念"><span class="nav-text">3.基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-严格模式"><span class="nav-text">3.1.严格模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-变量"><span class="nav-text">3.2.变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-3数据类型"><span class="nav-text">1.3.3数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Number-类型"><span class="nav-text">Number 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-类型"><span class="nav-text">String 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Boolean-类型"><span class="nav-text">Boolean 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Undefined-类型"><span class="nav-text">Undefined 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Null-类型"><span class="nav-text">Null 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object-类型"><span class="nav-text">Object 类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-4操作符"><span class="nav-text">1.3.4操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-5语句"><span class="nav-text">1.3.5语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-6函数"><span class="nav-text">1.3.6函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4小结"><span class="nav-text">1.4小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-元素"><span class="nav-text">1. \元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-文档模式"><span class="nav-text">2. 文档模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-基本概念"><span class="nav-text">3. 基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-严格模式"><span class="nav-text">3.1. 严格模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-变量"><span class="nav-text">3.2. 变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-3数据类型"><span class="nav-text">1.3.3数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Number-类型"><span class="nav-text">Number 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-类型"><span class="nav-text">String 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Boolean-类型"><span class="nav-text">Boolean 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Undefined-类型"><span class="nav-text">Undefined 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Null-类型"><span class="nav-text">Null 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object-类型"><span class="nav-text">Object 类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-4操作符"><span class="nav-text">1.3.4操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-5语句"><span class="nav-text">1.3.5语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-6函数"><span class="nav-text">1.3.6函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4小结"><span class="nav-text">1.4小结</span></a></li></ol></div>
             
 
           </div>
