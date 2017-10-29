@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="1.基本类型与引用类型的值ECMAScript变量包含的值有两种类型  基本类型值：一般为简单的数据段，如js的五种基本数据类型，它们是按值访问的，可以操作保存在变量中的实际值。 引用类型值：可以理解为可能由多个值构成的对象；js不允许直接访问内存中的位置，即不能直接操作对象的内存空间。在操作对象时，一般操作的是对象的引用，引用类型的值是按引用来访问的（一般是这样，但为对象添加属性时，操作的是实际">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript学习笔记（二）">
+<meta property="og:url" content="http://yoursite.com/2017/10/29/Javascript学习笔记（二）/index.html">
+<meta property="og:site_name" content="Ertist&#39;s Blog">
+<meta property="og:description" content="1.基本类型与引用类型的值ECMAScript变量包含的值有两种类型  基本类型值：一般为简单的数据段，如js的五种基本数据类型，它们是按值访问的，可以操作保存在变量中的实际值。 引用类型值：可以理解为可能由多个值构成的对象；js不允许直接访问内存中的位置，即不能直接操作对象的内存空间。在操作对象时，一般操作的是对象的引用，引用类型的值是按引用来访问的（一般是这样，但为对象添加属性时，操作的是实际">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-29T09:32:25.359Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript学习笔记（二）">
+<meta name="twitter:description" content="1.基本类型与引用类型的值ECMAScript变量包含的值有两种类型  基本类型值：一般为简单的数据段，如js的五种基本数据类型，它们是按值访问的，可以操作保存在变量中的实际值。 引用类型值：可以理解为可能由多个值构成的对象；js不允许直接访问内存中的位置，即不能直接操作对象的内存空间。在操作对象时，一般操作的是对象的引用，引用类型的值是按引用来访问的（一般是这样，但为对象添加属性时，操作的是实际">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/29/Javascript学习笔记（二）/"/>
+
+
+
+
+
+  <title>Javascript学习笔记（二） | Ertist's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ertist's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">hello world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/29/Javascript学习笔记（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kym">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/xsljtx.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ertist's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Javascript学习笔记（二）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-29T17:32:25+08:00">
+                2017-10-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-基本类型与引用类型的值"><a href="#1-基本类型与引用类型的值" class="headerlink" title="1.基本类型与引用类型的值"></a>1.基本类型与引用类型的值</h2><p>ECMAScript变量包含的值有两种类型</p>
+<ul>
+<li>基本类型值：一般为简单的数据段，如js的五种基本数据类型，它们是按值访问的，可以操作保存在变量中的实际值。</li>
+<li>引用类型值：可以理解为可能由多个值构成的对象；js不允许直接访问内存中的位置，即不能直接操作对象的内存空间。在操作对象时，一般操作的是对象的引用，引用类型的值是按引用来访问的（一般是这样，但为对象添加属性时，操作的是实际的对象）。</li>
+</ul>
+<p>引用类型的值具有动态的属性，如在定义一个引用类型后可以给他添加或者删除属性和方法，而基本类型就不行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">"kym"</span>;</div><div class="line">name.age = <span class="number">22</span>;</div><div class="line">alert(name.age);             <span class="comment">//undefined</span></div></pre></td></tr></table></figure>
+<h3 id="1-1-复制变量值"><a href="#1-1-复制变量值" class="headerlink" title="1.1 复制变量值"></a>1.1 复制变量值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num1 = <span class="number">9</span>;</div><div class="line"><span class="keyword">var</span> num2 = num1;          <span class="comment">//num = 9; num2 = 9;</span></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">这个过程并不是把num1的值传递到num2中，而是在变量对象上创建一个新值，然后把这个新值复制到为新变量分配的位置上，故num2以后的操作不会影响num1。</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj1 = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line"><span class="keyword">var</span> obj2 = obj1;</div><div class="line">obj1.name = <span class="string">"kym"</span>;</div><div class="line">alert(obj2.name);          <span class="comment">//"kym"</span></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">相比基本类型的值，obj1和obj2指向的是同一个对象，当obj1添加name属性后，可以通过obj2来访问这个对象。</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure>
+<h3 id="1-2-传递参数"><a href="#1-2-传递参数" class="headerlink" title="1.2 传递参数"></a>1.2 传递参数</h3><p>ECMAScript中所有函数的参数都是按值传递的。<br>向参数传递基本类型的值时，被传递的值会被复制给一个局部变量。而向参数传递引用类型的值时，会把这个变量在内存中的地址复制给一个局部变量，所以这个局部变量的变化会反映在函数的外部。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params">obj1</span>)</span>&#123;</div><div class="line">  obj1.name = <span class="string">"kym"</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">test1(person);</div><div class="line">alert(person.name);   <span class="comment">// "kym"</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params">obj2</span>)</span>&#123;</div><div class="line">  obj2.name = <span class="string">"kym"</span>;</div><div class="line">  obj2 = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">  obj2.name = <span class="string">"wgj"</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">test2(person);</div><div class="line">alert(person.name);   <span class="comment">// "kym"</span></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">这是因为在函数内重写obj2时，这个变量引用的是一个局部对象，这个局部对象会在函数结束后被销毁，同时也证明了函数的参数是按值传递的，不是按引用传递的。</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure>
+<h3 id="1-3-检测类型"><a href="#1-3-检测类型" class="headerlink" title="1.3 检测类型"></a>1.3 检测类型</h3><p>基本数据类型的变量用<code>typeof</code>操作符即可以检测；而引用类型的值，可以通过<code>instanceof</code>操作符来知道它是什么类型的对象（instanceof操作符在检测基本数据类型的值时返回的是false,因为基本数据类型的值不是对象）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">alert(person <span class="keyword">instanceof</span> <span class="built_in">Object</span>);   <span class="comment">//变量person是Object吗？</span></div><div class="line">alert(colors <span class="keyword">instanceof</span> <span class="built_in">Array</span>);    <span class="comment">//变量colors是Array吗？</span></div><div class="line">alert(pattern <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>);  <span class="comment">//变量pattern是RegExp吗？</span></div></pre></td></tr></table></figure>
+<h2 id="2-执行环境及作用域"><a href="#2-执行环境及作用域" class="headerlink" title="2.执行环境及作用域"></a>2.执行环境及作用域</h2><h4 id="2-1-执行环境"><a href="#2-1-执行环境" class="headerlink" title="2.1 执行环境"></a>2.1 执行环境</h4><p>执行环境定义了变量或者函数有权访问的其他数据，每个执行环境都有一个关联的变量对象，环境中定义所有函数和变量都保存在这个对象变量中（解析器在后台处理数据时会用到变量对象）</p>
+<p>某个执行环境中所有代码执行完毕后，环境会被销毁，保存在里边的所有函数定义和变量也会被销毁。<br>全局环境为最外围的一个执行环境，在Web浏览器中，被认为是window对象。</p>
+<h4 id="2-2-作用域"><a href="#2-2-作用域" class="headerlink" title="2.2 作用域"></a>2.2 作用域</h4><p>代码在执行环境中运行的时候，会创建一个作用域链，它的作用是保证那些对执行环境有权访问的变量和函数能有序访问。作用域的前端，始终是当前执行的代码。全局执行环境的变量对象时准时作用域链中的最后一个对象。<br>内部环境可以通过作用域链访问所有外部环境，但外部环境不能访问内部环境中的任何变量和函数。<br>作用域没有块级的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</div><div class="line">  <span class="keyword">var</span> color = <span class="string">"blue"</span>;</div><div class="line">&#125;</div><div class="line">alert(color);             <span class="comment">//blue</span></div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</div><div class="line">  <span class="comment">//dosomething</span></div><div class="line">&#125;</div><div class="line">alert(i);                 <span class="comment">//i = 10</span></div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">这是js与其他编程语言的不同，在if、for这种块级内声明的变量不会随着块运行结束而销毁，而是将它添加在了当前的执行环境中。</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure></p>
+<p>如果局部执行环境中存在与父级执行环境同名的标识符，就不会使用父级环境长的标识符。</p>
+<h2 id="3-垃圾收集"><a href="#3-垃圾收集" class="headerlink" title="3.垃圾收集"></a>3.垃圾收集</h2><p>Js具有自动垃圾收集机制，它的原理是找出那些不再继续使用的变量，然后释放其占用的内存。故她会按照固定的时间间隔周期性的执行这一操作。</p>
+<p>一般采用标记清除，引用清除有时候会出现循环引用的问题。</p>
+<p>优化内存占用最佳的方式，就是为执行中的代码只保存必要的数据。一旦数据不再有用，最好将其值设为null来释放其引用（解除引用），适合大多数全局变量和全局对象的属性。解除引用的真正作用是让值脱离执行环境，以便垃圾收集器下次回收时将其回收。</p>
+<h2 id="4-小结"><a href="#4-小结" class="headerlink" title="4.小结"></a>4.小结</h2><p>这一块的内容知识点不多，但在写的过程中不能很好的总结出来，一方面书上对概念已经解释的很精辟了，另一方面可能与自己的掌握有关，暂且就先这么写上去，等以后对javascript理解更深的时候，回头再看这些东西可能就清晰了。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/28/Javascript学习笔记（一）/" rel="next" title="Javascript学习笔记（一）">
+                <i class="fa fa-chevron-left"></i> Javascript学习笔记（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/xsljtx.JPG"
+              alt="kym" />
+          
+            <p class="site-author-name" itemprop="name">kym</p>
+            <p class="site-description motion-element" itemprop="description">骐骥一跃，不能十步。</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Ertist" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:ofxiaoka@163.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-基本类型与引用类型的值"><span class="nav-text">1.基本类型与引用类型的值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-复制变量值"><span class="nav-text">1.1 复制变量值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-传递参数"><span class="nav-text">1.2 传递参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-检测类型"><span class="nav-text">1.3 检测类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-执行环境及作用域"><span class="nav-text">2.执行环境及作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-执行环境"><span class="nav-text">2.1 执行环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-作用域"><span class="nav-text">2.2 作用域</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-垃圾收集"><span class="nav-text">3.垃圾收集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-小结"><span class="nav-text">4.小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kym</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
